@@ -1,0 +1,140 @@
+<layout_9>: #referencia a classe de mesmo nome do arquivo .py no caso BoxLayout, ela e tida como a própria instancia
+    BoxLayout:
+        pos: root.x, root.y
+        opacity: root.setOpacity
+        id: layout_9
+        orientation: 'vertical'
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: root.img
+        FloatLayout: #Layout de elementos flutuantes
+            orientation: "vertical" #Determina que os elementos filhos irão se agrupar em linhas verticais
+            size_hint: 1, 1
+            opacity: 0
+            id: time_logo
+            # referencia seu endereço permitindo a localiza-lo
+            # e mudificar seu valor
+            Image: #Imagem da logo superior direito
+                pos_hint: {"center_x": 0.92, "center_y": 0.76} #posição em relação ao centro do widget
+                size_hint: 0.1, None
+    			height: 100
+                source: "Imagens/ifrn.png" #origem da imagem
+            Button: #Relógio
+                id: time
+                markup: "true" #ativa opção da dormatação do texto
+                color: (0.2,0.2,0.2,1)
+                background_color: (255,255,255, 0.95) #cores em bgra
+                border: (10,10,10,10)
+                size_hint: 0.08,0.1
+                border_hint: 10 , 10, 10, 10
+                pos_hint: {"center_x": 0.92, "center_y": 0.55}
+                font_size: 15
+                text: "[b]" + root.time + "[/b]"
+        BoxLayout:
+            id: anime_text
+            pos_hint: {'center_x': -1, 'center_y': 0}
+            orientation: "vertical"
+            size_hint: 1,0.48
+            opacity: 0
+            canvas:
+                Color:
+                    rgb: (0, 0, 0)
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            Label: #Label do títilo da noticia
+                id: title
+                markup: "true"
+                font_size: 28
+                size_hint: None, None
+                size_hint_x: 1
+                height: 18
+                text: "[b]" + root.title + "[/b]"
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint: None, None
+                size_hint_x: 1
+                height: 200
+                Label: #Label do paragrafo da noticia
+                    id: paragraphe
+                    markup: "true"
+                    font_size: 20
+                    text: root.paragraphe
+
+<layout_15>:
+    padding: [0,20,0,0]
+    orientation: "horizontal"
+    canvas:
+        Color:
+            rgb: (0.373, 0.62, 0.627)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+            size_hint: 1, 0.4
+        Image:
+            size_hint: 1, 0.9
+            source: "Imagens/1.jpg"
+        BoxLayout:
+            id: anime_text1
+            padding: 10
+            orientation:'vertical'
+            pos_hint: {'center_x': -1, 'center_y': -1}
+            Label:
+                id: title
+                size_hint: 1, 0.1
+                markup: "true"
+                font_size: 23
+                text: "[b]" + root.title + "[/b]"
+            Label:
+                id: paragraphe
+                size_hint: 1, 0.3
+                markup: "true"
+                font_size: 20
+                text: root.paragraphe
+    FloatLayout: #Layout flutuante
+        orientation: "vertical"
+        size_hint: 1, 1
+        id: time_logo1
+        opacity: 0
+        Image:
+            pos_hint: {"center_x": 0.92, "center_y": 0.85}
+            size_hint: 0.15, 0.15
+            source: "Imagens/ifrn.png"
+        Button:
+            size_hint: 0.09, 0.12
+            id: time
+            markup: "true"
+            color: (0.2,0.2,0.2,1)
+            background_color: (255,255,255,0.8)
+            pos_hint: {"center_x": 0.92, "center_y": 0.68}
+            text:  "[b]" + root.time + "[/b]"
+        Image:
+            pos_hint: {"center_x": 0.92, "center_y": 0.2}
+            size_hint: 0.12, 0.12
+            source: "Imagens/qr.png"
+
+
+<RootWidgets>:
+#Filho da classe mãe poderá ser apagado
+#pelo clear_widgets(), que o mesmo apagará somente os filhos
+    #BoxLayout:
+    #    Video:
+    #        source: 'logo-new.ogg'
+    #        state: 'play'
+    #        size: self.size
+        #orientation: 'vertical'
+        #canvas:
+            #Color:
+                #rgb: (0.3, 0.6, 0.3)
+            #Rectangle:
+                #pos: self.pos #posição do rentagulo
+                #size: self.size #tamanho, x e y, do Retangulo
+        #Label:
+            #text: '[b]Carregando...[/b]'
+            #markup: 'True'
+            #font_size: '40sp'
