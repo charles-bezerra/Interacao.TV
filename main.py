@@ -268,7 +268,15 @@ class tvApp(App):
 
 
 class main:
+    def clear_buffer_imgs():
+        files = os.listdir("Imagens/")
+        for i in files:
+            f = i.split(".")
+            if(f[0].isnumeric()):
+                os.remove("Imagens/" + i)
+                break
     if __name__ == '__main__':
+        clear_buffer_imgs()
         a = get_monitors()
         a = str(a[0])
         a = a.replace('monitor','')
